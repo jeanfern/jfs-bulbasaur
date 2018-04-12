@@ -8,9 +8,9 @@ JFS Bulbasaur - JeanFern's Folder Structure Bulbasaur is a very simple folder st
 ## How To
 
 > First of all, make sure you have everything you need installed in your computer - Node, Npm, Gulp.
-* Node - https://nodejs.org/en/
-* Npm - https://www.npmjs.com/get-npm
-* Gulp - https://gulpjs.com/
+> * Node - https://nodejs.org/en/
+> * Npm - https://www.npmjs.com/get-npm
+> * Gulp - https://gulpjs.com/
 
 1. Download the folder.
 2. Using a Terminal (Command Prompt) to navigate to that folder.
