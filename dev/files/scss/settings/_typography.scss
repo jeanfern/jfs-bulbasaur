@@ -1,0 +1,52 @@
+$primary-font-family:       'Hind', sans-serif;
+$secondary-font-family:     'Montserrat', sans-serif;
+
+$base-font-family:          $primary-font-family;
+$base-font-weight:          300;
+
+$heading-font-family:       $secondary-font-family;
+$heading-font-weight:       700;
+
+$base-font-size:            16px;
+
+$default-font-size:(
+    h1: 3rem,
+    h2: 2.25rem,
+    h3: 1.5rem,
+    h4: 1.3215rem,
+    h5: 0.125rem,
+    h6: 1rem,
+    p: 1rem,
+    blockquote: 1rem,
+    dl: 1rem,
+    ol: 1rem,
+    ul: 1rem
+);
+
+$default-line-height:(
+    h1: 1,
+    h2: 1.3333333333333333,
+    h3: 1,
+    h4: 1.1428571428571428,
+    h5: 1.3333333333333333,
+    h6: 1.5,
+    p: 1.5,
+    blockquote: 1.5,
+    dd: 1.5,
+    dt: 1.5,
+    li: 1.5
+);
+
+$default-margin-bottom:(
+    h1: 0.5rem,
+    h2: 0.6666666666666666rem,
+    h3: 1rem,
+    h4: 1.1428571428571428rem,
+    h5: 1.3333333333333333rem,
+    h6: 1.5rem,
+    p: 1.5rem,
+    blockquote: 1.5rem,
+    dl: 1.5rem,
+    ol: 1.5rem,
+    ul: 1.5rem
+);

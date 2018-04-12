@@ -1,0 +1,31 @@
+.sample{
+    @include full;
+    background-color: $primary-color;
+    @include gradient('diagonaltobottom', $primary-color, 1, $background-color, 1);
+    padding: $base-spacing*2;
+    overflow: hidden;
+    @include media(tablet-wide, max) {
+        padding: $base-spacing
+    }
+    .sample__title{
+        font-size: 5rem;
+        color: #fff;
+        @include media(tablet-wide, max) {
+            font-size: calc(3.5rem*0.75 + .4vw);
+        }
+    }
+    .sample__image{
+        position: absolute;
+        max-width: 280px;
+        right: $base-spacing;
+        bottom: $base-spacing*0.5;
+        pointer-events: none;
+        @include media(tablet-wide, min) {
+            right: $base-spacing*2;
+            bottom: $base-spacing*1.5;
+        }
+        @include media(phone-wide, max) {
+            max-width: calc(220px + .75vw);
+        }
+    }
+}

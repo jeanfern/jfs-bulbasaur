@@ -1,0 +1,137 @@
+// Pseudoclasses starter
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+// Full width/height starter
+@mixin full{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// Object Fit
+@mixin object-fit($fit: fill, $position: null){
+    -o-object-fit: $fit;
+        object-fit: $fit;
+    @if $position {
+        -o-object-position: $position;
+            object-position: $position;
+        font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+    } @else {
+        font-family: 'object-fit: #{$fit}';
+    }
+}
+
+// Responsive ratio calculator
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    } @else {
+        padding-top: $padding;
+    }
+}
+
+// Media queries
+@mixin media($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+// Z Index calculator
+@function z($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+    } @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
+}
+
+// Absolutely centered
+@mixin centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+}
+
+// Margin auto
+@mixin margin-auto{
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+// Single line truncate 
+@mixin truncate($width) {
+    max-width: $width;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Multiline truncate
+@mixin multiline-truncate($font-size, $line-height,$lines-to-show){
+    display: block;
+    display: -webkit-box;
+    height: $font-size*$line-height*$lines-to-show;
+    font-size: $font-size;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Gradient
+@mixin gradient($gradient-type, $color-start, $opacity-start, $color-end, $opacity-end){
+    @if $gradient-type == vertical{
+       background: -moz-linear-gradient(top, rgba($color-start,$opacity-start) 0%, rgba($color-end,$opacity-end) 100%);
+       background: -webkit-linear-gradient(top, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       background: linear-gradient(to bottom, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color-start}', endColorstr='#{$color-end}',GradientType=0 );
+    }
+    @if $gradient-type == horizontal{
+       background: -moz-linear-gradient(left, rgba($color-start,$opacity-start) 0%, rgba($color-end,$opacity-end) 100%);
+       background: -webkit-linear-gradient(left, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       background: linear-gradient(to right, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color-start}', endColorstr='#{$color-end}',GradientType=1 );
+    }
+    @if $gradient-type == diagonaltobottom{
+       background: -moz-linear-gradient(-45deg, rgba($color-start,$opacity-start) 0%, rgba($color-end,$opacity-end) 100%);
+       background: -webkit-linear-gradient(-45deg, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       background: linear-gradient(135deg, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color-start}', endColorstr='#{$color-end}',GradientType=1 );
+    }
+    @if $gradient-type == diagonaltotop{
+       background: -moz-linear-gradient(45deg, rgba($color-start,$opacity-start) 0%, rgba($color-end,$opacity-end) 100%);
+       background: -webkit-linear-gradient(45deg, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       background: linear-gradient(45deg, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color-start}', endColorstr='#{$color-end}',GradientType=1 );
+    }
+    @if $gradient-type == radial{
+       background: -moz-radial-gradient(center, ellipse cover, rgba($color-start,$opacity-start) 0%, rgba($color-end,$opacity-end) 100%);
+       background: -webkit-radial-gradient(center, ellipse cover, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       background: radial-gradient(ellipse at center, rgba($color-start,$opacity-start) 0%,rgba($color-end,$opacity-end) 100%);
+       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color-start}', endColorstr='#{$color-end}',GradientType=1 );
+   }
+}

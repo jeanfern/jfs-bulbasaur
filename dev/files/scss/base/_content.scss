@@ -1,0 +1,112 @@
+* {
+    outline: none;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    color: $text-color;
+    background-color: $background-color;
+    @include media(tablet-wide, max) {
+        font-size: calc(#{$base-font-size}*0.75 + .4vw);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+ol,
+ul,
+dd,
+dt,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+
+@each $element,
+$size in $default-font-size {
+    #{$element} {
+        font-size: $size;
+        @include media(tablet-wide, max) {
+            font-size: calc(#{$size}*0.75 + .4vw);
+        }
+    }
+}
+
+@each $element,
+$line-height in $default-line-height {
+    #{$element} {
+        line-height: $line-height;
+        @include media(tablet-wide, max) {
+            line-height: $line-height*0.9;
+        }
+    }
+}
+
+@each $element,
+$margin-bottom in $default-margin-bottom {
+    #{$element} {
+        margin-bottom: $margin-bottom;
+        @include media(tablet-wide, max) {
+            margin-bottom: calc(#{$margin-bottom}*0.75 + .4vw);
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-font-family;
+    font-weight: $heading-font-weight;
+}
+
+p,
+blockquote {
+    hyphens: auto;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    transition: all 350ms ease-in-out;
+    &:hover,
+    &:focus,
+    &:active {
+        color: darken($link-color, 10%);
+        text-decoration: none;
+    }
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+img{
+    max-width: 100%;
+}
