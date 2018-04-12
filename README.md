@@ -35,7 +35,7 @@ JFS Bulbasaur - JeanFern's Folder Structure Bulbasaur is a very simple folder st
 
 ## SCSS Descriptions
 
-###Base
+### Base
 
 The `dev/files/scss/base/` folder holds all your base style for your project. There, we have a reset (Normalize.css) and base stylesheets that should be used accross the website.
 
@@ -47,7 +47,7 @@ Example:
 * `_forms.scss`
 * `_normalize.scss`
 
-###Components
+### Components
 
 For components, there is the `dev/files/scss/components/` folder . Tidy up there all components scss files – header, map, carousels, menus, etc.
 
@@ -80,7 +80,7 @@ Example:
 
 ## JS Descriptions
 
-###Plugins
+### Plugins
 `dev/files/js/plugins/` contains all the js files from external libraries and frameworks – Slick Carousel, Fancybox and so on. These files should not be edited. Use your settings to overwrite any thing that you need to change. They will be compiled and minified to a single file `dev/files/js/plugins.min.js`.
 
 Best Practices:
@@ -93,7 +93,7 @@ Example:
 * `_slick.js`
 * `_fancybox.js`
 
-###Settings
+### Settings
 The `dev/files/js/settings/` folder should contain all the JS files written by you. They will be compiled and minified to a single file `dev/files/js/settings.min.js`.
 
 Best Practices:
