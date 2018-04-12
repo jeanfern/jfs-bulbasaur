@@ -1,7 +1,6 @@
 # JeanFern's Folder Structure Bulbasaur
-![Build Status](https://img.shields.io/badge/pokedex-001-brightgreen.svg)
-![Build Status](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)
-![Build Status](https://img.shields.io/badge/running-gulp-brightgreen.svg)
+![Pokedex](https://img.shields.io/badge/pokedex-001-brightgreen.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)
 
 JFS Bulbasaur - JeanFern's Folder Structure Bulbasaur is a very simple folder structure developed by Jean Fernandes.
 
