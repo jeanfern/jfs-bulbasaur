@@ -54,7 +54,11 @@ gulp.task('including', ['cleaning:html'], function () {
         .pipe(gulp.dest(devpaths.dev));
 });
 
-gulp.task('styling', function () {
+gulp.task('cleaning:styles', function () {
+    return gulp.src(devpaths.css + '*.*')
+        .pipe(clean());
+});
+gulp.task('styling', ['cleaning:styles'], function () {
     return gulp.src(devpaths.scss + '**/*.scss')
         .pipe(plumber({
             errorHandler: function (error) {
@@ -79,8 +83,11 @@ gulp.task('styling', function () {
             stream: true
         }));
 });
-
-gulp.task('scripting:plugins', function () {
+gulp.task('cleaning:plugins', function () {
+    return gulp.src(devpaths.js + 'plugins.*')
+        .pipe(clean());
+});
+gulp.task('scripting:plugins', ['cleaning:plugins'], function () {
     return gulp.src(devpaths.jsplugins + '*.js')
         .pipe(plumber({
             errorHandler: function (error) {
@@ -104,8 +111,13 @@ gulp.task('scripting:plugins', function () {
             stream: true
         }));
 });
-
-gulp.task('scripting:settings', function () {
+gulp.task('cleaning:settings', function () {
+    return gulp.src(devpaths.js + 'settings.*')
+        .pipe(clean());
+});
+gulp.task('scripting:settings', ['cleaning:settings'], function () {
+    return gulp.src(devpaths.js + 'settings.*')
+        .pipe(clean());
     return gulp.src(devpaths.jssettings + '*.js')
         .pipe(plumber({
             errorHandler: function (error) {
