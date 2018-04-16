@@ -116,8 +116,6 @@ gulp.task('cleaning:settings', function () {
         .pipe(clean());
 });
 gulp.task('scripting:settings', ['cleaning:settings'], function () {
-    return gulp.src(devpaths.js + 'settings.*')
-        .pipe(clean());
     return gulp.src(devpaths.jssettings + '*.js')
         .pipe(plumber({
             errorHandler: function (error) {
