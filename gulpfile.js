@@ -2,7 +2,6 @@ var autoprefixer = require('gulp-autoprefixer'),
     browsersync = require('browser-sync'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
-    cssmin = require('gulp-cssmin'),
     fileinclude = require('gulp-file-include'),
     gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
@@ -67,12 +66,14 @@ gulp.task('styling', ['cleaning:styles'], function () {
             }
         }))
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer(['last 2 versions', 'ie 8', 'ie 9', '> 1%']))
-        .pipe(cssmin())
         .pipe(rename({
             suffix: '.min'
         }))
+        .pipe(sourcemaps.mapSources(function(sourcePath, file) {
+            return '../scss/' + sourcePath;
+          }))
         .pipe(sourcemaps.write('.', {
             mapFile: function (mapFilePath) {
                 return mapFilePath.replace('.css.map', '.map');
